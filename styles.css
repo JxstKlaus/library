@@ -1,0 +1,222 @@
+/* ------ ANIMATIONS ------ */
+
+@keyframes slideInFromBottom {
+    from {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+
+/* ------ Styling ------ */
+:root{
+    --color-light-gray: rgb(214, 214, 214);
+    --color-dark-gray: rgb(100, 100, 100);
+    --color-dark-text: rgb(43, 43, 71);
+    --color-light-text: rgb(221, 221, 255);
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    border: none;
+    text-decoration: none;
+    font-family: "Open Sans", sans-serif;
+    color: var(--color-dark-text);
+}
+
+button:hover{
+    cursor: pointer;
+}
+
+body{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header{
+    width: 100%;
+    height: 100px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    padding-left: 12%;
+    display: flex;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+h1{
+    font-size: 3rem;
+}
+
+
+.add-book-btn{
+    margin-bottom: 2rem;
+    background-color: var(--color-light-gray);
+    padding: 1rem 1.5rem;
+    border-radius: 16px;
+    font-size: 1.4rem;
+    font-weight: 600;
+    align-self: center;
+}
+
+main{
+    width: clamp(250px, 85%, 1200px);
+    display: flex;
+    flex-direction: column;
+}
+.books-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px; 
+  }
+
+
+/* ------ CARDS ------ */
+
+.book.card {
+    background-color: rgb(102, 126, 204); 
+    padding: 20px;
+    padding-right: 28px;
+    border-radius: 16px;
+    aspect-ratio: 1;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    overflow: hidden;
+    transition: ease-in .2s;
+}
+
+h3.title{
+    font-size: 2rem;
+}
+.author{
+    font-family: "Dancing Script";
+    font-weight: 900;
+    font-size: 1.2rem;
+}
+
+.pages{
+    font-family: "Dancing Script";
+    font-weight: 900;
+    font-size: .9rem;
+    align-self: center;
+    position: absolute;
+    bottom: 0;
+
+}
+
+.card:hover{
+    background-color: rgb(64, 71, 133);
+}
+
+.card:hover .status-container{
+    animation: slideInFromBottom 0.2s ease-out forwards;
+}
+
+.card:hover::after{
+    text-align: center;
+    content: url("./res/delete.svg");
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.status-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    width: 100%;
+    height: 20%;
+    background-color: rgb(34, 34, 49);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 2;
+    transform: translateY(100%);
+}
+
+.status-container h4{
+    color: var(--color-light-text);
+}
+
+.status{
+    width: 100%;
+    font-size: .9rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.status button{
+    font-weight: 700;
+    padding: 4px 6px;
+    border-radius: 4px;
+}
+
+.status .active.read{
+    background-color: rgb(0, 201, 0);
+}
+.status .active.reading{
+    background-color: rgb(240, 250, 103);
+}
+.status .active.dropped{
+    background-color: rgb(212, 1, 1);
+}
+
+/* ------ FORM ------ */
+
+form{
+    display: none;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: fixed;
+    z-index: 2;
+    border: 1px solid black;
+    width: 400px;
+    height: 300px;
+    background-color: white;
+    border-radius: 16px;
+}
+
+.form-container{
+    padding-top: 10%;
+    display: flex;
+    gap: 20px;
+}
+
+.form-texts, .form-inputs{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-texts{
+    width: 25%;
+    align-items: flex-end;
+}
+.form-texts h4{
+    font-size: 1.2rem;
+}
+
+.form-inputs{
+    width: 75%;
+    align-items: flex-start;
+}
+
+.form-inputs input{
+    width: 90%;
+    border: 1px solid gray;
+    height: 26px;
+}
+
