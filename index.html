@@ -18,34 +18,16 @@
         <h1>library</h1>
     </header>
 
-    <form action="submit">
-        <div class="form-container">
-            <div class="form-texts">
-                <h4>Title:</h4>
-                <h4>Author:</h4>
-                <h4>Pages:</h4>
-    
-            </div>
-            <div class="form-inputs">
-                <input type="text">
-                <input type="text">
-                <input type="text">
-            </div>
-        </div>
-        
-        <button type="submit">Add</button>
-
-        
-    </form>
-
     <main>
         <button class="add-book-btn">+ Add book</button>
 
-        <div class="books-container">
-            <div class="book card">
+        <div class="cards-container">
+            <div class="card">
                 
                 <h3 class="title">Naruto</h3>
-                <p class="author">by Kaldwo ldllwp</p>
+                <p class="author">Kaldwo ldllwp</p>
+                <p class="pages">2210</p>
+                <p class="card-status read"></p>
                 <div class="status-container">
                     <h4>Change status</h4>
                     <div class="status">
@@ -54,13 +36,12 @@
                         <button class="dropped">Dropped</button>
                     </div>
                 </div>
-                
-                <p class="pages">2210 pages</p>
-                
             </div>
-            <div class="book card">
+            <div class="card">
                 <h3 class="title">Ego is your enemy</h3>
-                <p class="author">by Kaldwo ldllwp</p>
+                <p class="author">Kaldwo ldllwp</p>
+                <p class="pages">210</p>
+                <p class="card-status reading"></p>
                 <div class="status-container">
                     <h4>Change status</h4>
                     <div class="status">
@@ -69,11 +50,12 @@
                         <button class="dropped">Dropped</button>
                     </div>
                 </div>
-                <p class="pages">210 pages</p>
             </div>
-            <div class="book card">
+            <div class="card">
                 <h3 class="title">some cool book</h3>
-                <p class="author"> by Lorem ipsum dolor</p>
+                <p class="author"> Lorem ipsum dolor</p>
+                <p class="pages">710</p>
+                <p class="card-status dropped"></p>
                 <div class="status-container">
                     <h4>Change status</h4>
                     <div class="status">
@@ -82,15 +64,36 @@
                         <button class="dropped active">Dropped</button>
                     </div>
                 </div>
-                <p class="pages">710 pages</p>
             </div>
-            <div class="book card"></div>
-            <div class="book card"></div>
-            <div class="book card"></div>
-            <div class="book card"></div>
         </div>
 
     </main>
+    <div class="overlay"></div>
+    <div id="add-book-form" action="#" method="post">
+        <div class="form-container">
+            <div class="form-texts">
+                <label for="title">Title</label>
+                <label for="author">Author</label>
+                <label for="pages">Pages</label>
+                <label for="status">Status</label>
+    
+            </div>
+            <div class="form-inputs">
+                <input id="title" type="text">
+                <input id="author" type="text">
+                <input id="pages" type="text">
+                <select id="status" name="status">
+                    <option selected class="read" value="read">✅ Read</option>
+                    <option class="reading" value="reading">📖 Reading</option>
+                    <option class="dropped" value="dropped">❌ Dropped</option>
+                </select>
+            </div>
+        </div>
+        
+        <button class="continue">Continue</button>
+
+        
+    </div>
 
     <script src="script.js"></script>
 </body>

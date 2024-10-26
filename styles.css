@@ -16,8 +16,13 @@
 :root{
     --color-light-gray: rgb(214, 214, 214);
     --color-dark-gray: rgb(100, 100, 100);
+    --color-darker-gray: rgb(59, 59, 59);
     --color-dark-text: rgb(43, 43, 71);
     --color-light-text: rgb(221, 221, 255);
+    --color-status-read: rgb(0, 201, 0);
+    --color-status-reading: rgb(240, 250, 103);
+    --color-status-dropped: rgb(212, 0, 0);
+
 }
 
 *{
@@ -70,7 +75,7 @@ main{
     display: flex;
     flex-direction: column;
 }
-.books-container {
+.cards-container {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 15px; 
@@ -79,7 +84,7 @@ main{
 
 /* ------ CARDS ------ */
 
-.book.card {
+.card {
     background-color: rgb(102, 126, 204); 
     padding: 20px;
     padding-right: 28px;
@@ -102,15 +107,47 @@ h3.title{
     font-size: 1.2rem;
 }
 
+.author::before{
+    content: "by ";
+}
+
 .pages{
     font-family: "Dancing Script";
     font-weight: 900;
     font-size: .9rem;
     align-self: center;
     position: absolute;
-    bottom: 0;
-
+    bottom: 32px;
 }
+.pages::after{
+    content: " pages";
+}
+
+.card-status{
+    width: 100%;
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    text-align: center;
+    transform: translateX(-50%);
+    border-radius: 12px;
+    padding: 4px 8px;
+    background-color: var(--color-darker-gray);
+    color: var(--color-light-gray);
+    font-weight: 500;
+}
+.card-status.read::before{
+    content: "Completed ✅";
+}
+.card-status.reading::before{
+    content: "Currently reading 📖";
+}
+.card-status.dropped::before{
+    content: "Dropped ❌";
+}
+
+
+/* Card on hover */
 
 .card:hover{
     background-color: rgb(64, 71, 133);
@@ -164,18 +201,30 @@ h3.title{
 }
 
 .status .active.read{
-    background-color: rgb(0, 201, 0);
+    background-color: var(--color-status-read);
 }
 .status .active.reading{
-    background-color: rgb(240, 250, 103);
+    background-color: var(--color-status-reading);
 }
 .status .active.dropped{
-    background-color: rgb(212, 1, 1);
+    background-color: var(--color-status-dropped);
 }
 
 /* ------ FORM ------ */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: none;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.65);
+}
+.overlay.active{
+    display: block;
+}
 
-form{
+#add-book-form{
     display: none;
     top: 50%;
     left: 50%;
@@ -187,6 +236,11 @@ form{
     height: 300px;
     background-color: white;
     border-radius: 16px;
+    z-index: 3;
+}
+
+#add-book-form.active{
+    display: block;
 }
 
 .form-container{
@@ -205,7 +259,7 @@ form{
     width: 25%;
     align-items: flex-end;
 }
-.form-texts h4{
+.form-texts label{
     font-size: 1.2rem;
 }
 
@@ -214,9 +268,25 @@ form{
     align-items: flex-start;
 }
 
-.form-inputs input{
+.form-inputs input, select{
     width: 90%;
     border: 1px solid gray;
     height: 26px;
+    font-weight: 600;
+    border-radius: 12px;
 }
 
+.form-inputs select{
+    height: 28px;
+}
+
+#add-book-form .continue{
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--color-light-gray);
+    padding: 8px 24px;
+    border-radius: 12px;
+    font-size: 1.2rem;
+}
