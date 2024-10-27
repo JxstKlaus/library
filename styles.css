@@ -136,6 +136,7 @@ h3.title{
     color: var(--color-light-gray);
     font-weight: 500;
 }
+
 .card-status.read::before{
     content: "Completed ✅";
 }
@@ -157,15 +158,21 @@ h3.title{
     animation: slideInFromBottom 0.2s ease-out forwards;
 }
 
-.card:hover::after{
+.card .delete-icon{
     text-align: center;
-    content: url("./res/delete.svg");
     cursor: pointer;
     position: absolute;
     top: 10px;
     right: 10px;
+    opacity: 0;
+    transition: ease .3s;
 }
 
+.card:hover .delete-icon{
+    opacity: 1;
+}
+
+/* status changer buttons on card hover*/
 .status-container{
     display: flex;
     flex-direction: column;
@@ -246,6 +253,7 @@ h3.title{
 .form-container{
     padding-top: 10%;
     display: flex;
+    justify-content: center;
     gap: 20px;
 }
 
@@ -256,7 +264,7 @@ h3.title{
 }
 
 .form-texts{
-    width: 25%;
+    width: 20%;
     align-items: flex-end;
 }
 .form-texts label{
@@ -264,7 +272,7 @@ h3.title{
 }
 
 .form-inputs{
-    width: 75%;
+    width: 60%;
     align-items: flex-start;
 }
 
@@ -274,10 +282,15 @@ h3.title{
     height: 26px;
     font-weight: 600;
     border-radius: 12px;
+    font-size: 1rem;
+}
+.form-inputs input{
+    padding-left: .5rem;
 }
 
 .form-inputs select{
     height: 28px;
+    width: 130px;
 }
 
 #add-book-form .continue{
