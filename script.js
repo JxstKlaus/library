@@ -15,12 +15,12 @@ class Book{
 class Library{
     constructor() {
         this.books = [
-            new Book("title1","author1", "235", "read"),
-            new Book("title2","author2", "672", "reading"),
-            new Book("title3","author3", "34", "dropped"),
+            new Book("The 48 Laws of Power","Robert Greene", "452", "reading"),
+            new Book("Surrounded by Idiots","Thomas Erikson", "282", "read"),
+            new Book("Harry Potter","J. K. Rowling", "254", "dropped"),
 
         ]
-       //this.books = [];
+        //this.books = [];
     }
 
     printBooks(){

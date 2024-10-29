@@ -22,7 +22,7 @@
     --color-light-gray: rgb(214, 214, 214);
     --color-dark-gray: rgb(100, 100, 100);
     --color-darker-gray: rgb(59, 59, 59);
-    --color-dark-text: rgb(43, 43, 71);
+    --color-dark-text: rgb(63, 44, 27);
     --color-light-text: rgb(221, 221, 255);
     --color-status-read: rgb(0, 201, 0);
     --color-status-reading: rgb(240, 250, 103);
@@ -92,13 +92,16 @@ h1{
 }
 
 main{
-    width: clamp(250px, 85%, 1200px);
+    width: clamp(250px, 85%, 1300px);
     display: flex;
     flex-direction: column;
 }
 .cards-container {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    justify-content: center;
+    /* grid-template-columns: repeat(4, 1fr); */
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-auto-columns: auto;
     gap: 15px; 
   }
 
@@ -106,7 +109,7 @@ main{
 /* ------ CARDS ------ */
 
 .card {
-    background-color: rgb(102, 126, 204); 
+    background-color: rgb(233, 205, 172);
     padding: 20px;
     padding-right: 28px;
     border-radius: 16px;
@@ -178,7 +181,7 @@ input::-webkit-inner-spin-button {
 /* Card on hover */
 
 .card:hover{
-    background-color: rgb(64, 71, 133);
+    background-color: rgb(201, 166, 124);
 }
 
 .card:hover .status-container{
@@ -207,7 +210,8 @@ input::-webkit-inner-spin-button {
     gap: 4px;
     width: 100%;
     height: 20%;
-    background-color: rgb(34, 34, 49);
+    /* background-color: rgb(34, 34, 49); */
+    background-color: var(--color-darker-gray);
     position: absolute;
     bottom: 0;
     left: 0;
@@ -216,7 +220,7 @@ input::-webkit-inner-spin-button {
 }
 
 .status-container h4{
-    color: var(--color-light-text);
+    color: var(--color-light-gray);
 }
 
 .status{
