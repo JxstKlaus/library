@@ -66,6 +66,8 @@ const author = document.querySelector("#author");
 const pages = document.querySelector("#pages");
 const status_ = document.querySelector("#status");
 
+const errorText = document.querySelector(".error-text");
+
 //EVENTS
 
 addBookBtn.onclick = displayForm;
@@ -150,7 +152,9 @@ function addBook(){
         drawBookCard(newBook);
         hideForm();
     }
-
+    else{
+        errorText.textContent = "This book has already been added"
+    }
     //todo validation 
 }
 

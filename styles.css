@@ -123,6 +123,12 @@ h3.title{
     content: " pages";
 }
 
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
 .card-status{
     width: 100%;
     position: absolute;
@@ -255,6 +261,7 @@ h3.title{
     display: flex;
     justify-content: center;
     gap: 20px;
+    padding-bottom: .4rem;
 }
 
 .form-texts, .form-inputs{
@@ -266,6 +273,9 @@ h3.title{
 .form-texts{
     width: 20%;
     align-items: flex-end;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 .form-texts label{
     font-size: 1.2rem;
@@ -278,14 +288,14 @@ h3.title{
 
 .form-inputs input, select{
     width: 90%;
-    border: 1px solid gray;
+    border: 2px solid var(--color-darker-gray);
     height: 26px;
     font-weight: 600;
     border-radius: 12px;
-    font-size: 1rem;
+    font-size: .9rem;
 }
 .form-inputs input{
-    padding-left: .5rem;
+    padding: .3rem .5rem;
 }
 
 .form-inputs select{
@@ -303,3 +313,27 @@ h3.title{
     border-radius: 12px;
     font-size: 1.2rem;
 }
+
+
+
+/* ------ VALIDATION ------ */
+
+.error-text{
+    text-align: center;
+    color: rgb(255, 52, 52);
+    font-size: .8rem;
+}
+
+.form-inputs input:invalid:not(:placeholder-shown){
+    border: 2px solid red;
+}
+
+.form-inputs input:valid{
+    border: 2px solid greenyellow;
+}
+
+input:invalid ~ button[type="submit"]{
+    pointer-events: none;
+    opacity: .65;
+}
+

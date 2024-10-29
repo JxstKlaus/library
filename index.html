@@ -36,18 +36,19 @@
     
             </div>
             <div class="form-inputs">
-                <input id="title" type="text">
-                <input id="author" type="text">
-                <input id="pages" type="text">
+                <input id="title" type="text" placeholder="Ego Is the Enemy" required>
+                <input id="author" type="text" placeholder="Ryan Holiday" required>
+                <input id="pages" type="number" placeholder="256" required>
                 <select id="status" name="status">
                     <option selected class="read" value="read">✅ Read</option>
                     <option class="reading" value="reading">📖 Reading</option>
                     <option class="dropped" value="dropped">❌ Dropped</option>
                 </select>
+                <button type="submit" class="continue">Continue</button>
+
             </div>
         </div>
-        
-        <button class="continue">Continue</button>
+        <p class="error-text"></p>
 
         
     </div>
