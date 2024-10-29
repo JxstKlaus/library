@@ -20,6 +20,7 @@ class Library{
             new Book("title3","author3", "34", "dropped"),
 
         ]
+       //this.books = [];
     }
 
     printBooks(){
